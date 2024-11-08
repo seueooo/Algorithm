@@ -1,19 +1,25 @@
-n,m=map(int,input().split())
-num=int(input())
- 
-start,end=1,
-start+m
-answer=0
- 
-for i in range(num):
-    a=int(input())
-    if(a>=start and a<end):pass
-    elif(a<start):
-        answer+=start-a
-        start=a
-        end=start+m
-    else:
-        answer+=a+1-end
-        end=a+1
-        start=end-m
-print(answer)
+n, m = map(int, input().split())
+j = int(input())
+
+#바구니의 초기 위치
+start = 1
+end = m
+distance = 0
+
+for _ in range(j):
+    p = int(input())
+
+    if p < start:
+        #바구니의 이동거리 누적
+        distance += (start - p)
+        
+        #바구니의 새 위치로 설정
+        start = p
+        end = p + m - 1
+
+    elif p > end:
+        distance += (p - end)
+        end = p
+        start = end - m + 1
+
+print(distance)
