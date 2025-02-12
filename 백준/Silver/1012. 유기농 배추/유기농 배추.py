@@ -2,7 +2,6 @@ from collections import deque
 
 T = int(input())
 
-
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 
@@ -23,12 +22,10 @@ def bfs(x, y, M,N):
                 q.append((nx, ny))
     return
 
-
-
-# 그래프 초기화
 for i in range(T):
     cnt = 0
     M, N, K = map(int, input().split())
+    # 그래프 초기화
     graph = [[0] * M for _ in range(N)]
     for i in range(K):
         X,Y = map(int, input().split())
